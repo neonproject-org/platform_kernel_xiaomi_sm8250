@@ -19,7 +19,7 @@ err() {
 
 # Set environment for directory
 KERNEL_DIR=$PWD
-IMG_DIR="$KERNEL_DIR"/out/arch/arm64/boot
+IMG_DIR=out/arch/arm64/boot
 
 # Get defconfig file
 DEFCONFIG=munch_defconfig
@@ -137,7 +137,8 @@ gen_zip() {
 	cd ..
 
 	# Move kernel image to AnyKernel3
-	mv "$IMG_DIR"/Image.gz-dtb AnyKernel3/Image.gz-dtb
+	mv "$IMG_DIR"/Image AnyKernel3/Image.gz-dtb
+	mv "$IMG_DIR"/dtb AnyKernel3/dtb
 	mv "$IMG_DIR"/dtbo.img AnyKernel3/dtbo.img
 	cd AnyKernel3 || exit
 
